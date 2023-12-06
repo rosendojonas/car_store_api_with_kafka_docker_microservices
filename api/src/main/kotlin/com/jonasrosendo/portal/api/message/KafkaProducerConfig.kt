@@ -1,6 +1,6 @@
 package com.jonasrosendo.portal.api.message
 
-import com.jonasrosendo.portal.api.dto.CarPostDTO
+import com.jonasrosendo.portal.api.dto.CarDTO
 import org.apache.kafka.clients.producer.ProducerConfig
 import org.apache.kafka.common.serialization.StringSerializer
 import org.springframework.beans.factory.annotation.Value
@@ -21,7 +21,7 @@ class KafkaProducerConfig {
     private lateinit var bootstrapServer: String
 
     @Bean
-    fun userProducerFactory(): ProducerFactory<String, CarPostDTO> {
+    fun userProducerFactory(): ProducerFactory<String, CarDTO> {
         val configProps: MutableMap<String, Any> = HashMap()
         configProps[ProducerConfig.BOOTSTRAP_SERVERS_CONFIG] = bootstrapServer
         configProps[JsonSerializer.ADD_TYPE_INFO_HEADERS] = false
@@ -32,7 +32,7 @@ class KafkaProducerConfig {
     }
 
     @Bean
-    fun userKafkaTemplate(): KafkaTemplate<String, CarPostDTO> {
+    fun userKafkaTemplate(): KafkaTemplate<String, CarDTO> {
         return KafkaTemplate(userProducerFactory())
     }
 

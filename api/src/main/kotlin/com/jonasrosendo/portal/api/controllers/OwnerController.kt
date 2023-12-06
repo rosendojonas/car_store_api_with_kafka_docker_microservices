@@ -1,6 +1,6 @@
 package com.jonasrosendo.portal.api.controllers
 
-import com.jonasrosendo.portal.api.dto.OwnerPostDTO
+import com.jonasrosendo.portal.api.dto.OwnerDTO
 import com.jonasrosendo.portal.api.services.OwnerPostService
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -20,9 +20,9 @@ class OwnerController(
     private val LOG: Logger = LoggerFactory.getLogger(OwnerController::class.java)
 
     @PostMapping
-    fun createOwnerCar(@RequestBody ownerPostDTO: OwnerPostDTO): ResponseEntity<*>? {
-        LOG.info("USANDO API REST - Criando Novo Usuário: {}", ownerPostDTO)
-        ownerPostService.createOwner(ownerPostDTO)
+    fun createOwnerCar(@RequestBody ownerDTO: OwnerDTO): ResponseEntity<*>? {
+        LOG.info("USANDO API REST - Criando Novo Usuário: {}", ownerDTO)
+        ownerPostService.createOwner(ownerDTO)
         return ResponseEntity<Any>(HttpStatus.CREATED)
     }
 
