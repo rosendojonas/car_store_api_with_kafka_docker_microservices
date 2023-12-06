@@ -20,7 +20,7 @@ class OwnerController(
     private val LOG: Logger = LoggerFactory.getLogger(OwnerController::class.java)
 
     @PostMapping
-    fun createOwnerCar(@RequestBody ownerDTO: OwnerDTO): ResponseEntity<*>? {
+    fun createOwner(@RequestBody ownerDTO: OwnerDTO): ResponseEntity<*>? {
         LOG.info("USANDO API REST - Criando Novo Usuário: {}", ownerDTO)
         ownerPostService.createOwner(ownerDTO)
         return ResponseEntity<Any>(HttpStatus.CREATED)

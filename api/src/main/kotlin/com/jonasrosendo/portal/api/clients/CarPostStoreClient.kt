@@ -12,7 +12,7 @@ class CarPostStoreClient(
     private val restTemplate: RestTemplate,
 ) {
 
-    private val USER_STORE_SERVICE_URI = "http://localhost:8080/user"
+    private val OWNERS_STORE_SERVICE_URI = "http://localhost:8080/owners"
     private val POSTS_STORE_SERVICE_URI = "http://localhost:8080/sales"
 
     fun getCarForSale(): List<CarDTO> {
@@ -24,7 +24,7 @@ class CarPostStoreClient(
     }
 
     fun createNewUser(newUser: OwnerDTO) {
-        restTemplate.postForEntity(USER_STORE_SERVICE_URI, newUser, OwnerDTO::class.java)
+        restTemplate.postForEntity(OWNERS_STORE_SERVICE_URI, newUser, OwnerDTO::class.java)
     }
 
     fun updateCarForSaleClient(carDTO: CarDTO, id: Long) {
