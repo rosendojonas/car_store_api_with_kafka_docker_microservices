@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude
 import java.math.BigDecimal
 
 @JsonInclude
-data class CarPostDTO(
+data class CarDTO(
     private var ownerId: Long? = null,
     private var ownerName: String? = null,
     private var ownerType: String? = null,
